@@ -1,0 +1,103 @@
+div[name="container"] {
+    border-radius: 10px;
+}
+div[name="news-container"] {
+    border-radius: 10px;
+}
+div[name="event-container"]{
+    border-radius: 10px;
+}
+
+
+#news-shadow-id {
+    border-radius: 10px;
+}
+#news-card-content-id {
+    padding-top: 10px; 
+    display: flex; 
+    align-items: center;
+}
+div[class="news-souce-logo-container"] {
+    margin-left: 24px; 
+    margin-top:5px;
+    display: flex;
+}
+div[class="news-info-container"] {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+div[class="news-info"]{
+    font-size: 13px;
+}
+
+
+
+#meteo-shadow-id {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#clock-shadow-id {
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+div[name="date-contenitor"]{
+    background-color: #333; 
+    border-radius: 10px;
+    text-align: center; 
+    width: 330px;
+    margin: auto
+}
+p[class="date-text"] {
+    color:#ccc; 
+    font-size: 22px
+}
+
+#event-shadow-id {
+    border-radius: 10px;
+}
+#event-date-id {
+    margin-left: 10px;
+}
+div[name="event-container"]{
+    height: 72px;
+    display: flex;
+    align-content: center;
+    align-items: center
+}
+div[class="event-data-blue-container"] {
+    text-align: center;
+    border-radius: 5px; 
+    background: #1565c0; 
+    padding-left: 8px; 
+    padding-right: 8px;
+}
+#event-card-content-id {
+    padding-left: 10px;
+}
+
+#twitter-shadow-id {
+    padding: 30px;
+    border-radius: 10px;
+}
+div[id="d4"]{
+    max-height: 840px;
+    overflow: auto;
+}
+div[id="d3-2"]{
+    max-height: 840px;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+    }
+@font-face {
+        font-family: "productSans";
+        src: url('product-sans/ProductSansRegular.ttf') format("truetype");
+    }
+body{
+    font-family: "productSans";
+}

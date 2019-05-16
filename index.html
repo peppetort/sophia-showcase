@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Torrescalla Bacheca</title>
+  <link rel='icon' href='res/favicon.ico' type='image/x-icon' />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="compiled/flipclock.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="compiled/flipclock.js"></script>
+
+  <script>
+    setInterval(
+      function () {
+        location.reload(true)
+      }, 600000)  
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="js/qrcode.min.js"></script>
+  <script src="js/theme.js"></script>
+
+</head>
+
+<body>
+
+  <div class="row">
+
+
+    <script>$(".row").hide()</script>
+
+    <!--Prima colonna (notizie)-->
+    <div class="col s4" id="news-column">
+      <script src="js/news.js"></script>
+    </div>
+
+    <!--Seconda colonna (meteo + eventi)-->
+    <div class="col s4">
+
+      <!--Orologio-->
+      <div class="card" name="container" id="clock-id">
+        <div class="z-depth-2" id="clock-shadow-id">
+          <div class="clock" style="display:flex;justify-content: center;align-items: center;"></div>
+          <script type="text/javascript">
+            var clock;
+            $(document).ready(function () {
+              clock = $('.clock').FlipClock({
+                clockFace: 'TwentyFourHourClock'
+              });
+            });
+          </script>
+          <div class="z-depth-2" name="date-contenitor">
+            <b>
+              <p id="date-day" class="date-text">Data</p>
+            </b>
+          </div>
+          <script>
+            let today = new Date()
+            let dName = String(today).split(' ')[0]
+            let dd = String(today).split(' ')[2]
+            let mm = String(today).split(' ')[1]
+            let yyyy = String(today).split(' ')[3]
+
+            switch (String(dName)) {
+              case 'Mon':
+                dName = 'Lun'
+                break
+              case 'Tue':
+                dName = 'Mar'
+                break
+              case 'Wed':
+                dName = 'Mer'
+                break
+              case 'Thu':
+                dName = 'Gio'
+                break
+              case 'Fri':
+                dName = 'Ven'
+                break
+              case 'Sat':
+                dName = 'Sab'
+                break
+              case 'Sun':
+                dName = 'Dom'
+                break
+            }
+
+            switch (String(mm)) {
+              case 'Janaury':
+                mm = 'Gen'
+                break
+              case 'February':
+                mm = 'Feb'
+                break
+              case 'March':
+                mm = 'Mar'
+                break
+              case 'April':
+                mm = 'Apr'
+                break
+              case 'May':
+                mm = 'Mag'
+                break
+              case 'June':
+                mm = 'Giu'
+                break
+              case 'July':
+                mm = 'Lug'
+                break
+              case 'August':
+                mm = 'Ago'
+                break
+              case 'September':
+                mm = 'Set'
+                break
+              case 'October':
+                mm = 'Ott'
+                break
+              case 'November':
+                mm = 'Nov'
+                break
+              case 'December':
+                mm = 'Dic'
+                break
+            }
+            document.getElementById('date-day').innerHTML = dName + ' ' + dd + ' ' + mm + ' ' + yyyy
+          </script>
+        </div>
+      </div>
+
+      <!--Meteo-->
+      <div class="card" name='container'>
+        <div class="z-depth-2" id="meteo-shadow-id">
+          <a id="weather_widget" class="weatherwidget-io" href="https://forecast7.com/it/45d469d19/milan/"
+            data-label_1="MILAN" data-label_2="WEATHER" data-theme="gray" data-basecolor="#fafafa">MILAN WEATHER</a>
+          <script src="js/weather.js"></script>
+        </div>
+      </div>
+
+      <!--Piscina-->
+      <div class="z-depth-2" id="event-shadow-id">
+        <div class="card horizontal" name="container" id="pool-card"
+          style="height: 80px; display: flex; align-content: center; align-items: center">
+          <script src="js/pool.js"></script>
+        </div>
+      </div>
+
+
+      <!--Eventi-->
+      <div class="event-container" id="event-container-id">
+        <script src="js/events.js"></script>
+      </div>
+
+    </div>
+
+    <!--Terza Colonna (Twitter)-->
+    <div class="col s4" style="height: 100vh;" id="d3-2">
+
+      <div class="card" name='container' id="d4">
+        <div class="z-depth-2" id="twitter-shadow-id">
+          <div id="top"></div>
+        </div>
+      </div>
+
+      <script src="js/scroll.js"></script>
+
+    </div>
+
+  </div>
+
+  <script>
+    newsRequest(eventRequest, poolRequest, applyTheme)
+  </script>
+
+</body>
+
+</html>
